@@ -2,7 +2,6 @@
 
 require 'optparse'
 require 'lazy_logger'
-require 'lazy_logger/version'
 
 options = {}
 

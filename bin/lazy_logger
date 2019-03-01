@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'lazy_logger'
+require 'lazy_logger/version'
+
+options = {}
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: lazy_logger [options]"
+
+  opts.on('-v', '--version') { puts "lazy_logger v#{LazyLogger::VERSION}"; exit(0) }
+end.parse!
+

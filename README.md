@@ -1,9 +1,11 @@
-# Usage
+lazy_logger is a Ruby gem that provides custom log
 
-```ruby
+### Getting started
+
+```sh
+gem 'lazy_logger', git: 'https://github.com/zlei1/lazy_logger'
+
 require 'lazy_logger'
 
 LazyLogger.file_name.info "hello word"
 ```
-
-where "file_name" is the log file name.

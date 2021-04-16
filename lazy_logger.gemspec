@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["zhenglei123a@gmail.com"]
 
   spec.summary       = %q{lazy_logger}
-  spec.description   = %q{lazy_logger}
+  spec.description   = %q{lazy_logger is a Ruby gem that provides custom log}
   spec.homepage      = "https://github.com/zlei1/lazy_logger"
   spec.license       = "MIT"
 
@@ -32,8 +32,8 @@ Gem::Specification.new do |spec|
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir        = "bin"
+  spec.executables   << "lazy_logger"
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 2.0"

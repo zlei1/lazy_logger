@@ -9,7 +9,6 @@ class LazyLoggerTest < Minitest::Test
 
   def test_log
     LazyLogger.test.info "hello world"
-
     lines = IO.readlines("test.log")
 
     assert_equal "hello world", lines.last.strip

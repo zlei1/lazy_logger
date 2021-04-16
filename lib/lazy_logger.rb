@@ -1,8 +1,6 @@
 require_relative "lazy_logger/version"
-require_relative "lazy_logger/base_logging"
+require_relative "lazy_logger/base"
 require_relative "lazy_logger/configuration"
-
-require 'active_support/inflector'
 
 module LazyLogger
   class << self
@@ -16,25 +14,18 @@ module LazyLogger
     end
 
     def method_missing(name, *args, &block)
-      _klass_name ||= name.to_s.classify
-      file = log_file(name)
+      _klass_name ||= name.to_s.split(/\_/).map(&:capitalize).join
+      file = "#{configure.directory}/#{name}.log"
       
       class_eval <<-STR
         class #{_klass_name}
-          include LazyLogger::BaseLogging
+          include LazyLogger::Base
 
-          logger_setup file: '#{file}'
+          register file: '#{file}'
         end
       STR
 
       const_get(_klass_name)
     end
-
-    private
-
-    def log_file(name)
-      "#{configure.file_directory}/#{name}.log"
-    end
-    
   end
 end

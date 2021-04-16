@@ -2,10 +2,10 @@ require 'pathname'
 
 module LazyLogger
   class Configuration
-    attr_accessor :file_directory
+    attr_accessor :directory
 
     def initialize
-      @file_directory = Pathname.new(Dir.pwd)
+      @directory = Dir.pwd
     end
   end
 end
